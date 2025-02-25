@@ -28,7 +28,9 @@ function bacaSemuaMapel(){
 }
 
 function cariMapel($cari){  
-    $sql = "SELECT * FROM matapelajaran WHERE kodemapel = '$cari'";
+    $sql = "SELECT * FROM matapelajaran 
+            WHERE kodemapel = '$cari' 
+            OR namamapel LIKE '%$cari%'";
     return bacaMapel($sql);
 }
 

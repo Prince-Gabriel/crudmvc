@@ -1,17 +1,17 @@
 <?php
-
-
-function koneksiAkademi() { 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "akademik";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+if (!function_exists('koneksiAkademi')) {
+    function koneksiAkademi() {
+        $host = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "akademik";
+        
+        $koneksi = mysqli_connect($host, $username, $password, $database);
+        
+        if(!$koneksi) {
+            die("Koneksi gagal: " . mysqli_connect_error());
+        }
+        
+        return $koneksi;
     }
-
-    return $conn;
 }
